@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>훈련생 성적 확인 시스템</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 로그인 화면 -->
+    <div id="login-section" class="card active">
+      <h2>성적 확인 로그인</h2>
+      <p>이름과 6자리 비밀번호를 입력해주세요.</p>
+      <form id="login-form">
+        <div class="input-group">
+          <label for="username">이름</label>
+          <input type="text" id="username" placeholder="이름 입력 (관리자는 '관리자')" required>
+        </div>
+        <div class="input-group">
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" placeholder="비밀번호 6자리 입력" required>
+        </div>
+        <button type="submit" class="btn">로그인</button>
+        <p id="error-message" class="error-msg"></p>
+      </form>
+    </div>
+
+    <!-- 수강생용 화면 -->
+    <div id="student-section" class="card hidden">
+      <div class="header-flex">
+        <h2 id="student-greeting"></h2>
+        <button id="logout-btn-student" class="btn-outline">로그아웃</button>
+      </div>
+      <div class="summary-box">
+        <p>전체 평균 점수: <strong id="student-average" class="highlight-score"></strong></p>
+      </div>
+      <div id="student-records" class="records-container"></div>
+    </div>
+
+    <!-- 관리자용 화면 -->
+    <div id="admin-section" class="card hidden admin-card">
+      <div class="header-flex">
+        <h2>관리자 대시보드</h2>
+        <button id="logout-btn-admin" class="btn-outline">로그아웃</button>
+      </div>
+      <p class="admin-desc">전체 수강생의 성적과 피드백을 조회합니다.</p>
+      <div id="admin-records" class="admin-container"></div>
+    </div>
+  </div>
+
+  <!-- 데이터 및 기능 스크립트 로드 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
